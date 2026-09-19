@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import "@fontsource/figtree";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 

@@ -2,67 +2,110 @@
 @tailwind components;
 @tailwind utilities;
 
+/* COLOR PALETTE */
+
+@theme {
+  --color-poly-green: #154734;
+  --color-mustang-gold: #bd8b13;
+
+  --color-green: #3a913f;
+  --color-light-green: #a4d65e;
+
+  --color-gold: #f2c75c;
+  --color-light-gold: #f8e08e;
+
+  --color-teal: #5cb8b2;
+  --color-light-teal: #b5e3d8;
+
+  --color-light-blue: #abcae9;
+  --color-pale-blue: #d5e4f4;
+
+  --color-beige: #e4e3d3;
+  --color-tan: #cac7a7;
+
+  --color-sage: #b7cdc2;
+  --color-dark-sage: #789f90;
+
+  --color-dark-gray: #54585a;
+  --color-gray: #8e9089;
+
+  --font-body: 'Figtree', sans-serif;
+  --font-heading: 'Figtree', sans-serif;
+}
+
+/* GLOBAL STYLES */
+
 @layer base {
+  /* Default: light mode */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    color-scheme: light dark;
+    --background-color: #ffffff;
+    --text-color: #000000;
   }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+
+  /* Switch to dark mode based on system settings */
+  @media(prefers-color-scheme: dark) {
+    :root {
+      --background-color: #000000;
+      --text-color: #ffffff;
+    }
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+  }
+
+  #root {
+    min-height: 100svh;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+/* SHARED COMPONENT STYLES */
+@layer components {
+  /* Basic Button Styles
+      add background color using inline CSS */
+  .btn-primary {
+    color: white;
+
+    /* edit these values as needed */
+    border-radius: 9999px;
+    padding: 0.75rem 0.75rem;
+    width: 18rem;
+    
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2rem;
+
+    cursor: pointer;
+    text-align: center;
+
+    transition: filter 150ms ease;
   }
-  body {
-    @apply bg-background text-foreground;
+  .btn-primary:hover {
+    opacity: 10%;
+  }
+
+  .btn-secondary {
+    color: white;
+
+    /* edit these values as needed */
+    border-radius: 9999px;
+    padding: 0.75rem 0.75rem;
+    width: 18rem;
+    
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2rem;
+
+    cursor: pointer;
+    text-align: center;
+
+    transition: filter 150ms ease;
+  }
+  .btn-secondary:hover{
+    opacity: 10%;
   }
 }

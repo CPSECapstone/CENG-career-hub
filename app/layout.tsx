@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import "@fontsource/figtree";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
@@ -10,16 +9,12 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Next.js and Supabase Starter Kit",
-  description: "The fastest way to build apps with Next.js and Supabase",
+  title: "CENG Career Hub",
+  description: "A central hub for career opportunities for Cal Poly students",
 };
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  display: "swap",
-  subsets: ["latin"],
-});
-
+/* The Root Layout for all pages will be defined here:
+   may include a navbar, footer, etc. */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased`}>
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

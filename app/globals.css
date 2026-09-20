@@ -7,30 +7,6 @@
 /* colors aren't transferring to page.tsx - need to debug */
 
 @theme {
-  --color-poly-green: #154734;
-  --color-mustang-gold: #bd8b13;
-
-  --color-green: #3a913f;
-  --color-light-green: #a4d65e;
-
-  --color-gold: #f2c75c;
-  --color-light-gold: #f8e08e;
-
-  --color-teal: #5cb8b2;
-  --color-light-teal: #b5e3d8;
-
-  --color-light-blue: #abcae9;
-  --color-pale-blue: #d5e4f4;
-
-  --color-beige: #e4e3d3;
-  --color-tan: #cac7a7;
-
-  --color-sage: #b7cdc2;
-  --color-dark-sage: #789f90;
-
-  --color-dark-gray: #54585a;
-  --color-gray: #8e9089;
-
   --font-body: "Figtree", sans-serif;
   --font-heading: "Figtree", sans-serif;
 }
@@ -67,7 +43,7 @@
 @layer components {
   /* Basic Button Styles */
   .btn-primary {
-    background-color: #154734;
+    background-color: theme('colors.poly-green');
     color: white;
 
     border-radius: 10px;
@@ -86,7 +62,7 @@
     transition: filter 150ms ease;
   }
   .btn-primary:hover {
-    color: #154734;
+    color: theme('colors.poly-green');
     background-color: rgba(21, 72, 52, 0.3);
   }
 

@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* GLOBAL STYLES */
+/* to access colors from custom color palette, use theme(colors."<color-name>") */
 
 @layer base {
   /* Default: light mode */

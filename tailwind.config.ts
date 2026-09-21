@@ -13,6 +13,7 @@ export default {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        /* COLOR PALETTE */
         "poly-green": "#154734",
         "mustang-gold": "#bd8b13",
         green: "#3a913f",

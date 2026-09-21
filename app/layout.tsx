@@ -4,7 +4,7 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 const FigTree = Figtree({
-  weight: ["400", "700"],
+  weight: ["400", "600"],
   subsets: ["latin"],
 });
 

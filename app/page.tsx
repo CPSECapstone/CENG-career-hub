@@ -32,16 +32,34 @@ export default function Home() {
           <button className="btn-quaternary mt-2 mb-2">Button 4</button>
           <br></br>
           <div className="white-card mt-2 mb-2">
-            <p>Testing card 1. The size of the card will grow based on its contents.</p>
-            <p>We can use the row/column formatting provided by Tailwind using this basic card definition.</p>
+            <p>
+              Testing card 1. The size of the card will grow based on its
+              contents.
+            </p>
+            <p>
+              We can use the row/column formatting provided by Tailwind using
+              this basic card definition.
+            </p>
           </div>
           <div className="beige-card mt-2 mb-2">
-            <p>Testing card 2. The size of the card will grow based on its contents.</p>
-            <p>We can use the row/column formatting provided by Tailwind using this basic card definition.</p>
+            <p>
+              Testing card 2. The size of the card will grow based on its
+              contents.
+            </p>
+            <p>
+              We can use the row/column formatting provided by Tailwind using
+              this basic card definition.
+            </p>
           </div>
           <div className="sage-card mt-2 mb-2">
-            <p>Testing card 3. The size of the card will grow based on its contents.</p>
-            <p>We can use the row/column formatting provided by Tailwind using this basic card definition.</p>
+            <p>
+              Testing card 3. The size of the card will grow based on its
+              contents.
+            </p>
+            <p>
+              We can use the row/column formatting provided by Tailwind using
+              this basic card definition.
+            </p>
           </div>
         </div>
         <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">

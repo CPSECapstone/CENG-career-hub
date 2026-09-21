@@ -6,7 +6,7 @@ import "./globals.css";
 const FigTree = Figtree({
   weight: ["400", "700"],
   subsets: ["latin"],
-})
+});
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`

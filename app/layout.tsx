@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { Figtree } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import "@fontsource/figtree/400.css";
+import "@fontsource/figtree/600.css";
 import "./globals.css";
-
-const FigTree = Figtree({
-  weight: ["400", "600"],
-  subsets: ["latin"],
-});
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -27,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={FigTree.className}>
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

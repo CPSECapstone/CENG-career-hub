@@ -1,11 +1,9 @@
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center">
       <div className="flex-1 w-full flex flex-col gap-20 items-center">
-        <Navbar></Navbar>
         <div>
           <h2>Testing Reusable Components</h2>
           <button className="btn-primary mt-2 mb-2">Button 1</button>

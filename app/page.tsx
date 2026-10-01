@@ -21,8 +21,10 @@ export default function Home() {
             )}
           </div>
         </nav>
-        <div>
-          <h2>Testing Reusable Components</h2>
+        <div className="cover-photo">
+          <div className="page-header">
+            <h1>Testing Reusable Components</h1>
+          </div>
           <button className="btn-primary mt-2 mb-2">Button 1</button>
           <br></br>
           <button className="btn-secondary mt-2 mb-2">Button 2</button>
@@ -62,7 +64,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
+        <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8">
           <p>
             Powered by{" "}
             <a

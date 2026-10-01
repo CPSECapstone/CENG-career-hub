@@ -1,0 +1,121 @@
+.cards {
+  display: grid;
+  gap: 29px;
+}
+.event-card {
+  position: relative;
+  min-height: 196px;
+  padding: 31px 31px 29px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(9, 86, 68, 0.08);
+}
+.time-badge {
+  display: inline-block;
+  padding: 5px 7px;
+  border-radius: 6px;
+  color: theme("colors.poly-green");
+  background: them("colors.sage");
+  font-size: 12px;
+  line-height: 14px;
+}
+.event-card h2 {
+  margin: 15px 0 6px;
+  font-size: 21px;
+  letter-spacing: -0.4px;
+  line-height: 1;
+}
+.organization {
+  margin: 0;
+  font-size: 12px;
+}
+.bookmark {
+  position: absolute;
+  top: 31px;
+  right: 31px;
+  color: theme("colors.gray");
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.card-footer {
+  position: absolute;
+  bottom: 30px;
+  left: 31px;
+  right: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.event-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: theme("colors.gray");
+  font-size: 12px;
+}
+.event-meta span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+}
+.event-meta svg {
+  color: theme("colors.poly-green");
+}
+.details-button {
+  min-width: 106px;
+  height: 32px;
+  border: 0;
+  border-radius: 7px;
+  background: theme("colors.poly-green");
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+.empty-state {
+  color: theme("colors.gray");
+}
+.cards {
+  display: grid;
+  gap: 29px;
+}
+.event-card {
+  position: relative;
+  min-height: 196px;
+  padding: 31px 31px 29px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(9, 86, 68, 0.08);
+}
+
+.event-card h2 {
+  margin: 15px 0 6px;
+  font-size: 21px;
+  letter-spacing: -0.4px;
+  line-height: 1;
+}
+.organization {
+  margin: 0;
+  font-size: 12px;
+}
+
+.results {
+  min-width: 0;
+}
+.results-top {
+  height: 63px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding-top: 9px;
+}
+.results-top p {
+  margin: 0;
+  color: theme("colors.gray");
+  font-size: 16px;
+}
+.sort-wrapper {
+  position: relative;
+  z-index: 1;
+}

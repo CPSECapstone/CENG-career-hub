@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
+//import { ThemeProvider } from "next-themes";
 import "@fontsource/figtree/400.css";
 import "@fontsource/figtree/600.css";
 import "./globals.css";
@@ -16,22 +16,11 @@ export const metadata: Metadata = {
 
 /* The Root Layout for all pages will be defined here:
    may include a navbar, footer, etc. */
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
           {children}
-        </ThemeProvider>
       </body>
     </html>
   );

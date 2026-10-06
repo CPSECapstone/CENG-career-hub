@@ -1,9 +1,11 @@
-import { createServerClient } from "@supabase/ssr";
+//import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { hasEnvVars } from "../utils";
 
+/* Commented out authentication while we develop frontend (-Morgan) */
+
 export async function updateSession(request: NextRequest) {
-  let supabaseResponse = NextResponse.next({
+  const supabaseResponse = NextResponse.next({
     request,
   });
 
@@ -12,7 +14,7 @@ export async function updateSession(request: NextRequest) {
   if (!hasEnvVars) {
     return supabaseResponse;
   }
-
+  /*
   // With Fluid compute, don't put this client in a global environment
   // variable. Always create a new one on each request.
   const supabase = createServerClient(
@@ -44,6 +46,7 @@ export async function updateSession(request: NextRequest) {
 
   // IMPORTANT: If you remove getClaims() and you use server-side rendering
   // with the Supabase client, your users may be randomly logged out.
+  
   const { data } = await supabase.auth.getClaims();
   const user = data?.claims;
 
@@ -57,7 +60,7 @@ export async function updateSession(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = "/auth/login";
     return NextResponse.redirect(url);
-  }
+  } */
 
   // IMPORTANT: You *must* return the supabaseResponse object as it is.
   // If you're creating a new response object with NextResponse.next() make sure to:

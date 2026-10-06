@@ -1,3 +1,1 @@
-export default function Jobs() {
-
-}
+export default function Jobs() {}

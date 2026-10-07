@@ -100,8 +100,8 @@ export default function SideFilter() {
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Event title or Club"
-            aria-label="Event title or Club"
+            placeholder="Search company name"
+            aria-label="Search company name"
           />
         </label>
       </section>

@@ -13,7 +13,7 @@ export default function Chat() {
                     <h1 >Ask me anything!</h1>
                 </div>
             </div>
-            <div className="bg-white flex flex-row gap-2 justify-center items-start p-8">
+            <div className="bg-white flex flex-1 flex-row gap-2 justify-center p-8 min-h-20">
                 <ChatTextBox />
                 <ChatPriorMsg />
             </div>

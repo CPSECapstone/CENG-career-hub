@@ -23,6 +23,7 @@
   --color-dark-sage: #789f90;
   --color-dark-gray: #54585a;
   --color-gray: #8e9089;
+  --color-light-gray: #e2e8f0;
 
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
@@ -84,6 +85,7 @@
   /* Page Header */
   width: 100%;
   color: #fff;
+  height: 100%;
   background:
     linear-gradient(#12202bb5, #10201bbc),
     url('/images/cal-poly-slo.png') center 49% / cover;

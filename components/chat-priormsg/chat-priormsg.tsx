@@ -12,7 +12,7 @@ export default function ChatPriorMsg() {
                 <h3 className= "text-gray">Continue conversations with your AI assistant</h3>
                 <div className= "flex-1 max-h-[calc(100vh-220px)] overflow-y-auto">
                     {items.map((item, index) => (
-                    <div key={index} className= "flex flex-col gap-2 items-start hover:cursor-pointer p-4 rounded-xl hover:shadow-md overflow-scroll">
+                    <div key={index} className= "flex flex-col gap-2 items-start hover:cursor-pointer p-4 rounded-xl hover:shadow-md">
                         <h2 className="text-black font-bold text-md">{item}</h2>
                         <h3 className="text-gray">This is a test....</h3>
                     </div>

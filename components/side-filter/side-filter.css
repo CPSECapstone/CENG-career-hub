@@ -1,0 +1,110 @@
+.side-filter {
+  width: 100%;
+  max-width: 554px;
+  padding: 64px 56px;
+  border-radius: 34px;
+  color: #000;
+  background: theme("colors.sage");
+}
+.side-filter section + section {
+  margin-top: 40px;
+}
+.side-filter h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+}
+.side-filter-input,
+.side-filter-location {
+  height: 72px;
+  width: 100%;
+  margin-top: 28px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 22px;
+  color: #75808a;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 23px;
+}
+.side-filter-input input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+}
+.side-filter-input input::placeholder {
+  color: inherit;
+}
+.side-filter-location {
+  text-align: left;
+}
+.side-filter-location svg:last-child {
+  margin-left: auto;
+}
+.side-filter-options {
+  margin-top: 16px;
+  display: grid;
+  gap: 16px;
+}
+.side-filter-options label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+.side-filter-options input {
+  position: absolute;
+  opacity: 0;
+}
+.side-filter-checkbox {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border: 2px solid #75808a;
+  border-radius: 6px;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+.side-filter-options input:checked + .side-filter-checkbox {
+  border-color: theme("colors.poly-green");
+  background: theme("colors.poly-green");
+}
+.side-filter-options b {
+  min-width: 64px;
+  margin-left: auto;
+  padding: 4px 12px;
+  border-radius: 999px;
+  color: #75808a;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+.side-filter-show-more {
+  width: 100%;
+  height: 72px;
+  margin-top: 36px;
+  border: 0;
+  border-radius: 16px;
+  color: #fff;
+  background: theme("colors.poly-green");
+  font-size: 20px;
+  font-weight: 600;
+}
+.side-filter-show-more:hover {
+  background: #0e3225;
+}
+
+@media (max-width: 640px) {
+  .side-filter {
+    padding: 48px 36px;
+  }
+}

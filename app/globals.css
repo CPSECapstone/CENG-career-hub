@@ -1,6 +1,227 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-poly-green: #154734;
+  --color-mustang-gold: #bd8b13;
+  --color-green: #3a913f;
+  --color-light-green: #a4d65e;
+  --color-gold: #f2c75c;
+  --color-light-gold: #f8e08e;
+  --color-teal: #5cb8b2;
+  --color-light-teal: #b5e3d8;
+  --color-light-blue: #abcae9;
+  --color-pale-blue: #d5e4f4;
+  --color-beige: #e4e3d3;
+  --color-tan: #cac7a7;
+  --color-sage: #b7cdc2;
+  --color-dark-sage: #789f90;
+  --color-dark-gray: #54585a;
+  --color-gray: #8e9089;
+  --color-light-gray: #e2e8f0;
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+/* SHARED COMPONENT STYLES */
+
+@utility cover-photo {
+  /* Page Header */
+  width: 100%;
+  color: #fff;
+  height: 100%;
+  background:
+    linear-gradient(#12202bb5, #10201bbc),
+    url('/images/cal-poly-slo.png') center 49% / cover;
+}
+
+@utility page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 36px;
+  & h1 {
+    margin: 0 0 36px;
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: -0.8px;
+    font-weight: 700;
+  }
+}
+
+@utility btn-primary {
+  /* Basic Button Styles */
+  background-color: var(--color-poly-green);
+  color: white;
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  width: 266px;
+  height: 40px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  transition: filter 150ms ease;
+  &:hover {
+    color: var(--color-poly-green);
+    background-color: rgba(21, 72, 52, 0.3);
+  }
+}
+
+@utility btn-tertiary {
+  &:hover {
+    color: var(--color-poly-green);
+    background-color: rgba(21, 72, 52, 0.3);
+  }
+  background-color: var(--color-poly-green);
+  color: white;
+  border-radius: 10px;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  width: 90px;
+  height: 40px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: filter 150ms ease;
+}
+
+@utility btn-secondary {
+  background-color: var(--color-mustang-gold);
+  color: white;
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  width: 175px;
+  height: 40px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: filter 150ms ease;
+  &:hover {
+    color: var(--color-mustang-gold);
+    background-color: rgba(189, 139, 19, 0.3);
+  }
+}
+
+@utility btn-quaternary {
+  &:hover {
+    color: var(--color-mustang-gold);
+    background-color: rgba(189, 139, 19, 0.3);
+  }
+  background-color: var(--color-mustang-gold);
+  color: white;
+  border-radius: 10px;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  width: 97px;
+  height: 27px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: filter 150ms ease;
+}
+
+@utility sort-button {
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--color-dark-sage);
+  border-radius: 6px;
+  color: var(--color-dark-sage);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: -8px;
+}
+
+@utility next-button {
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--color-dark-sage);
+  border-radius: 6px;
+  color: var(--color-dark-sage);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+@utility previous-button {
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--color-dark-sage);
+  border-radius: 6px;
+  color: var(--color-dark-sage);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
 
 /* GLOBAL STYLES */
 /* to access colors from custom color palette, use theme(colors."<color-name>") */
@@ -28,121 +249,6 @@
 
   #root {
     min-height: 100svh;
-  }
-}
-
-/* SHARED COMPONENT STYLES */
-@layer components {
-  /* Page Header */
-  .cover-photo {
-    width: 100%;
-    color: #fff;
-    background:
-      linear-gradient(#12202bb5, #10201bbc),
-      url("/images/cal-poly-slo.png") center 49% / cover;
-  }
-  .page-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 36px;
-  }
-  .page-header h1 {
-    margin: 0 0 36px;
-    font-size: 46px;
-    line-height: 1;
-    letter-spacing: -0.8px;
-    font-weight: 700;
-  }
-
-  /* Basic Button Styles */
-  .btn-primary {
-    background-color: theme("colors.poly-green");
-    color: white;
-    border-radius: 10px;
-    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-    width: 266px;
-    height: 40px;
-    font-family: var(--font-body);
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    justify-content: center;
-    transition: filter 150ms ease;
-  }
-  .btn-primary:hover,
-  .btn-tertiary:hover {
-    color: theme("colors.poly-green");
-    background-color: rgba(21, 72, 52, 0.3);
-  }
-
-  .btn-secondary {
-    background-color: theme("colors.mustang-gold");
-    color: white;
-    border-radius: 10px;
-    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-    width: 175px;
-    height: 40px;
-    font-family: var(--font-body);
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    transition: filter 150ms ease;
-  }
-  .btn-secondary:hover,
-  .btn-quaternary:hover {
-    color: theme("colors.mustang-gold");
-    background-color: rgba(189, 139, 19, 0.3);
-  }
-
-  .btn-tertiary {
-    background-color: theme("colors.poly-green");
-    color: white;
-    border-radius: 10px;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    width: 90px;
-    height: 40px;
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-    transition: filter 150ms ease;
-  }
-
-  .btn-quaternary {
-    background-color: theme("colors.mustang-gold");
-    color: white;
-    border-radius: 10px;
-    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-    width: 97px;
-    height: 27px;
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-    transition: filter 150ms ease;
-  }
-
-  .sort-button,
-  .next-button,
-  .previous-button {
-    height: 32px;
-    padding: 0 10px;
-    border: 1px solid theme("colors.dark-sage");
-    border-radius: 6px;
-    color: theme("colors.dark-sage");
-    background: #fff;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-  }
-  .sort-button {
-    margin-top: -8px;
   }
 }
 

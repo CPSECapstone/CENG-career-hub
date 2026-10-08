@@ -41,13 +41,14 @@
   padding: 0;
 }
 .nav-links button:hover{
-  color: theme("colors.gold");
+  color: var(--color-gold);
+  cursor: pointer;
 }
 .profile-button {
   padding: 8px 16px;
   border-radius: 7px;
   color: #fff;
-  background: theme("colors.poly-green");
+  background: var(--color-poly-green);
   font-size: 16px;
 }
 .profile-button:hover{

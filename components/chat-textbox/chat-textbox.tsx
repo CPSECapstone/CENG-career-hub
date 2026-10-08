@@ -1,8 +1,8 @@
 export default function ChatTextBox() {
-  const chatbot: String[] = [
+  const chatbot: string[] = [
     "Absolutely! I've found a few roles that match your interests. Let me show you some options.",
   ];
-  const user: String[] = [
+  const user: string[] = [
     "Hi, I'm looking for a new job in the tech industry. Can you help me find some opportunities?",
   ];
   return (

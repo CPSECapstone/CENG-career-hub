@@ -4,7 +4,7 @@
   padding: 64px 56px;
   border-radius: 34px;
   color: #000;
-  background: theme("colors.sage");
+  background: var(--color-sage);
 }
 .side-filter section + section {
   margin-top: 40px;
@@ -23,7 +23,7 @@
   padding: 0 24px;
   border: 0;
   border-radius: 22px;
-  color: #75808a;
+  color: var(--color-gray);
   background: #fff;
   display: flex;
   align-items: center;
@@ -69,20 +69,20 @@
   width: 28px;
   height: 28px;
   flex: none;
-  border: 2px solid #75808a;
+  border: 2px solid var(--color-gray);
   border-radius: 6px;
   transition: background-color 150ms ease, border-color 150ms ease;
 }
 .side-filter-options input:checked + .side-filter-checkbox {
-  border-color: theme("colors.poly-green");
-  background: theme("colors.poly-green");
+  border-color: var(--color-poly-green);
+  background: var(--color-poly-green);
 }
 .side-filter-options b {
   min-width: 64px;
   margin-left: auto;
   padding: 4px 12px;
   border-radius: 999px;
-  color: #75808a;
+  color: var(--color-gray);
   background: #fff;
   font-size: 16px;
   font-weight: 400;
@@ -95,7 +95,7 @@
   border: 0;
   border-radius: 16px;
   color: #fff;
-  background: theme("colors.poly-green");
+  background: var(--color-poly-green);
   font-size: 20px;
   font-weight: 600;
 }

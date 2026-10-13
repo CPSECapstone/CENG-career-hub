@@ -18,80 +18,72 @@ import { useMemo, useState, type Dispatch, type SetStateAction } from "react";
 
 const events = [
   {
-    name: "Computer Science Career Night",
-    org: "Cal Poly Computer Science Department",
-    place: "Bldg. 14, Room 249",
-    date: "Oct 16, 5:30 PM",
-    posted: "12 min ago",
+    name: "Fall Career Fair",
+    org: "Cal Poly Career Services",
+    place: "Cal Poly SLO",
+    date: "Sep 16–17, 10:00 AM–3:00 PM",
+    eventDate: "2026-09-16",
+    posted: "Sep 11, 2026",
     about:
-      "Meet employers and Cal Poly alumni, learn about current software roles, and build connections for internships and full-time opportunities.",
+      "Meet employers recruiting for full-time, internship, and co-op roles. The CSSE department shared employer and position lists for students to review before the fair.",
     category: "Career & Networking",
     campus: "On Campus",
     city: "San Luis Obispo",
     major: "Computer Science",
   },
   {
-    name: "Software Engineering Alumni Panel",
-    org: "Cal Poly Computer Science Department",
-    place: "Bldg. 14, Room 250",
-    date: "Oct 18, 6:00 PM",
-    posted: "35 min ago",
+    name: "Business Career Fair",
+    org: "Cal Poly Career Services",
+    place: "Cal Poly SLO",
+    date: "Sep 18, 2026",
+    eventDate: "2026-09-18",
+    posted: "Sep 11, 2026",
     about:
-      "Hear Cal Poly alumni share what their first years in software engineering were like and ask questions about career paths, interviews, and industry teams.",
-    category: "Industry Panels",
+      "Connect with employers at the Business Career Fair and review the shared employer list to find roles that match your major and interests.",
+    category: "Career & Networking",
     campus: "On Campus",
     city: "San Luis Obispo",
     major: "Computer Science",
   },
   {
-    name: "AI and Machine Learning Workshop",
-    org: "Cal Poly Computer Science Department",
-    place: "Advanced Technology Labs",
-    date: "Oct 21, 4:00 PM",
-    posted: "1 hour ago",
+    name: "LAES 4301: VR, Gaming, and Interactive Exhibit Development",
+    org: "Cal Poly Computer Science & Software Engineering",
+    place: "Cal Poly SLO",
+    date: "Fall 2026",
+    eventDate: "2026-08-20",
+    posted: "Aug 20, 2026",
     about:
-      "A hands-on introduction to machine learning tools, model evaluation, and practical project ideas for Computer Science students.",
+      "A project-based elective with VR, game, and interactive-exhibit work. Students can earn upper-division technical elective or gaming-concentration credit.",
     category: "Workshops",
     campus: "On Campus",
     city: "San Luis Obispo",
     major: "Computer Science",
   },
   {
-    name: "CS Internship Info Session",
-    org: "Cal Poly Computer Science Department",
-    place: "Downtown SLO Innovation Hub",
-    date: "Oct 24, 5:00 PM",
-    posted: "3 hours ago",
+    name: "Summer 2026 Software Engineering Internship",
+    org: "Spread Goodness",
+    place: "Remote",
+    date: "Summer 2026",
+    eventDate: "2026-06-03",
+    posted: "Jun 3, 2026",
     about:
-      "Learn how to prepare a strong internship application, connect with local technology companies, and plan your search timeline.",
+      "A software engineering internship supporting an education-technology platform. The posting also noted a possible paid Lead Developer role during the following school year.",
     category: "Career & Networking",
     campus: "Off Campus",
-    city: "San Luis Obispo",
+    city: "Remote",
     major: "Computer Science",
   },
   {
-    name: "Hackathon Team Formation",
-    org: "Cal Poly Computer Science Department",
-    place: "Bldg. 14, Room 130",
-    date: "Oct 26, 12:00 PM",
-    posted: "Yesterday",
+    name: "Spring Career Fair",
+    org: "Cal Poly Career Services",
+    place: "Recreation Center Gym",
+    date: "Apr 8–9, 10:00 AM–3:00 PM",
+    eventDate: "2026-04-08",
+    posted: "Apr 3, 2026",
     about:
-      "Find teammates, pitch project ideas, and connect with students interested in participating in the upcoming campus hackathon.",
-    category: "Student Organizations",
+      "Network with employers offering internships, co-ops, and career positions. Career Services shared an employer spreadsheet that students can filter by major, interest, and location.",
+    category: "Career & Networking",
     campus: "On Campus",
-    city: "San Luis Obispo",
-    major: "Computer Science",
-  },
-  {
-    name: "Women in Computing Social",
-    org: "Cal Poly Computer Science Department",
-    place: "Kreuzberg Coffee Company",
-    date: "Oct 28, 4:30 PM",
-    posted: "2 days ago",
-    about:
-      "A casual opportunity to meet fellow students in computing, share experiences, and build community beyond the classroom.",
-    category: "Student Organizations",
-    campus: "Off Campus",
     city: "San Luis Obispo",
     major: "Computer Science",
   },
@@ -183,8 +175,8 @@ export default function Events() {
           return events.indexOf(second) - events.indexOf(first);
         if (sortBy === "Event date: soonest")
           return (
-            new Date(`${first.date}, 2026`).getTime() -
-            new Date(`${second.date}, 2026`).getTime()
+            new Date(first.eventDate).getTime() -
+            new Date(second.eventDate).getTime()
           );
         if (sortBy === "Event date: latest")
           return (

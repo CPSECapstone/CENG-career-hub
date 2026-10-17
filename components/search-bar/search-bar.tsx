@@ -1,3 +1,1 @@
-export default function SearchBar() {
-    
-}
+export default function SearchBar() {}

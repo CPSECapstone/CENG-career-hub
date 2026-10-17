@@ -54,9 +54,7 @@ function FilterList({ options }: { options: FilterOption[] }) {
           />
           <span className="side-filter-checkbox" />
           <span>{label}</span>
-          <b>
-            {count}
-          </b>
+          <b>{count}</b>
         </label>
       ))}
     </div>
@@ -111,12 +109,19 @@ export default function SideFilter() {
         <button
           className="side-filter-location"
           type="button"
-          onClick={() => setCity(city === "Choose city" ? "San Luis Obispo" : "Choose city")}
+          onClick={() =>
+            setCity(city === "Choose city" ? "San Luis Obispo" : "Choose city")
+          }
           aria-label="Choose city"
         >
           <MapPin aria-hidden="true" size={36} strokeWidth={2.25} />
           <span>{city}</span>
-          <ChevronDown className="ml-auto" aria-hidden="true" size={31} strokeWidth={2.5} />
+          <ChevronDown
+            className="ml-auto"
+            aria-hidden="true"
+            size={31}
+            strokeWidth={2.5}
+          />
         </button>
       </section>
 
@@ -127,7 +132,9 @@ export default function SideFilter() {
 
       <section>
         <h2>Industry</h2>
-        <FilterList options={showAllIndustries ? industries : industries.slice(0, 5)} />
+        <FilterList
+          options={showAllIndustries ? industries : industries.slice(0, 5)}
+        />
         <button
           className="side-filter-show-more"
           type="button"

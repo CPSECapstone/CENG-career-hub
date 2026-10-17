@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin 'tailwindcss-animate';
 
@@ -88,7 +88,7 @@
   height: 100%;
   background:
     linear-gradient(#12202bb5, #10201bbc),
-    url('/images/cal-poly-slo.png') center 49% / cover;
+    url("/images/cal-poly-slo.png") center 49% / cover;
 }
 
 @utility page-header {
@@ -105,8 +105,8 @@
   }
 }
 
+/* Basic Button Styles */
 @utility btn-primary {
-  /* Basic Button Styles */
   background-color: var(--color-poly-green);
   color: white;
   border-radius: 10px;
@@ -150,7 +150,7 @@
   color: white;
   border-radius: 10px;
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-  width: 175px;
+  width: 200px;
   height: 40px;
   font-family: var(--font-body);
   font-size: 16px;
@@ -222,9 +222,6 @@
   gap: 8px;
   font-size: 14px;
 }
-
-/* GLOBAL STYLES */
-/* to access colors from custom color palette, use theme(colors."<color-name>") */
 
 @layer base {
   /* Default: light mode */

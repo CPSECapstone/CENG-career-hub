@@ -1,7 +1,7 @@
 /* Reusable component for Login & Signup forms */
 "use client";
 import { useState } from "react";
-import { UserIcon } from 'lucide-react';
+import { UserIcon } from "lucide-react";
 
 interface AuthField {
   label: string;
@@ -71,11 +71,11 @@ export default function AuthForm({
     <div className="flex justify-center">
       <form
         onSubmit={handleSubmit}
-        className="rounded-2xl bg-beige px-12 pt-10 pb-10"
+        className="rounded-2xl bg-beige px-20 pt-10 pb-10"
       >
         {/* Form title */}
         <div className="mb-6 flex justify-center">
-          <h1 className="text-4xl font-bold">{title}</h1>
+          <h1 className="text-4xl text-black font-bold">{title}</h1>
         </div>
         {/* Input Fields */}
         <div className="flex flex-col gap-8">
@@ -83,16 +83,13 @@ export default function AuthForm({
             const key = field.label.toLowerCase();
             const Icon = field.Icon;
             return (
-              <div
-                key={key}
-                className="w-full mx-auto flex flex-col gap-4"
-              >
-                <label htmlFor={key} className="text-xl font-semibold">
+              <div key={key} className="w-full mx-auto flex flex-col gap-4">
+                <label htmlFor={key} className="text-xl text-black">
                   {" "}
                   {field.label}{" "}
                 </label>
-                <div className="flex items-center gap-3 border-b-2 border-gray-700 pb-2">
-                  <Icon className="h-6 w-6 mr-1 text-poly-green" /> 
+                <div className="flex items-center gap-5 border-b-2 border-gray-700 pb-2">
+                  <Icon className="h-6 w-6 mr-1 text-poly-green" />
                   <input
                     id={key}
                     name={key}
@@ -101,7 +98,7 @@ export default function AuthForm({
                     value={formData[key] ?? ""}
                     onChange={(e) => handleChange(field.label, e.target.value)}
                     required
-                    className="w-full bg-transparent outline-none focus:outline-none"
+                    className="w-2xs bg-transparent outline-none text-black focus:outline-none placeholder:text-gray"
                   />
                 </div>
               </div>
@@ -110,9 +107,7 @@ export default function AuthForm({
         </div>
         {/* Error & Success Messages */}
         {error && <p className="mt-6 text-center text-red-600">{error}</p>}
-        {success && (
-          <p className="mt-6 text-center text-green">{success}</p>
-        )}
+        {success && <p className="mt-6 text-center text-green">{success}</p>}
         {/* Optional forgot password button */}
         {forgotPasswordText && (
           <div className="mt-8 flex justify-center">
@@ -127,11 +122,7 @@ export default function AuthForm({
         )}
         {/* Submit button */}
         <div className="mt-8 flex justify-center">
-          <button
-            type="submit"
-            disabled={loading}
-            className="btn-secondary"
-          >
+          <button type="submit" disabled={loading} className="btn-secondary">
             {loading ? "Loading..." : buttonText}
           </button>
         </div>

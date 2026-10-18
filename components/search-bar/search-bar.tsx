@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown, Search } from "lucide-react";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import "./search-bar.css";
 
 export type SearchFilters = {
@@ -41,16 +41,29 @@ export default function SearchBar({
 
   const submitSearch = () => {
     onSearch?.({ query, location, category });
+    setOpenDropdown(null);
   };
 
+  const clearSearch = () => {
+    setQuery("");
+    setLocation("");
+    setCategory("");
+    setOpenDropdown(null);
+    onSearch?.({ query: "", location: "", category: "" });
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    submitSearch();
+  };
+
+  const hasFilters = Boolean(query || location || category);
+
   return (
-    <div className="search-bar" role="search">
+    <form className="search-bar" role="search" onSubmit={handleSubmit}>
       <input
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        onKeyDown={(event) => {
-          if (event.key === "Enter") submitSearch();
-        }}
         placeholder="Job Title or Company"
         aria-label="Job title or company"
       />
@@ -121,9 +134,14 @@ export default function SearchBar({
         )}
       </div>
 
-      <button className="search-button" type="button" onClick={submitSearch}>
+      <button className="search-button" type="submit">
         <Search size={16} /> Search
       </button>
-    </div>
+      {hasFilters && (
+        <button className="clear-search" type="button" onClick={clearSearch}>
+          Clear search
+        </button>
+      )}
+    </form>
   );
 }

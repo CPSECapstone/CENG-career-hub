@@ -13,13 +13,27 @@
   color: theme("colors.gray");
 }
 .search-bar input {
-  width: 100%;
-  min-width: 0;
-  padding: 0 17px 0 30px;
-  border: 0;
-  border-radius: 13px 0 0 13px;
-  outline: 0;
-  font-size: 12px;
+    width: 100%;
+    min-width: 0;
+    padding: 0 17px 0 30px;
+    border: 0;
+    border-radius: 13px 0 0 13px;
+    color: inherit;
+    background: #fff;
+    outline: 0;
+    font-size: 12px;
+}
+.search-bar input::placeholder {
+    color: theme("colors.gray");
+    opacity: 1;
+}
+.search-bar input:focus-visible,
+.dropdown-trigger:focus-visible,
+.search-button:focus-visible,
+.search-dropdown button:focus-visible,
+.clear-search:focus-visible {
+    outline: 3px solid theme("colors.light-gold");
+    outline-offset: -3px;
 }
 .select-control {
   position: relative;
@@ -90,24 +104,58 @@
   left: auto;
 }
 .search-button {
-  min-width: 0;
-  border: 0;
-  border-radius: 0 13px 13px 0;
-  background: theme("colors.poly-green");
-  color: #fff;
-  display: flex;
-  gap: 9px;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  white-space: nowrap;
+    min-width: 0;
+    border: 0;
+    border-radius: 0 13px 13px 0;
+    background: theme("colors.poly-green");
+    color: #fff;
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 150ms ease;
+}
+.search-button:hover {
+    background: #0f3728;
 }
 .clear-search {
-  margin-top: 9px;
-  border: 0;
-  border-bottom: 1px solid #ffffffa8;
-  padding: 0 0 1px;
-  color: #fff;
-  background: transparent;
-  font-size: 12px;
+    position: absolute;
+    top: calc(100% + 9px);
+    right: 0;
+    margin-top: 9px;
+    border: 0;
+    border-bottom: 1px solid #ffffffa8;
+    padding: 0 0 1px;
+    color: #fff;
+    background: transparent;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+@media (max-width: 680px) {
+    .search-bar {
+        width: min(100%, 420px);
+        height: auto;
+        min-height: 56px;
+        grid-template-columns: 1fr 106px;
+    }
+    .search-bar input {
+        min-height: 56px;
+    }
+    .select-control {
+        grid-column: span 1;
+        border-top: 1px solid #e1e4e5;
+    }
+    .select-control:nth-of-type(2) {
+        border-left: 0;
+    }
+    .dropdown-trigger {
+        min-height: 48px;
+    }
+    .search-button {
+        min-height: 56px;
+    }
 }

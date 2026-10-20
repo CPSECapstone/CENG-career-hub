@@ -16,4 +16,4 @@ All documentation for this project can be found on our <a href="https://calpoly-
 
 ## ✉︎ Contact
 
-If you would like to get in touch with the developers of this project, please contact cengcareerhub@gmail.com
+If you would like to get in touch with the developers of this project, please contact cengcareerhub@calpoly.edu

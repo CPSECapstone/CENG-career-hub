@@ -19,19 +19,12 @@
   align-items: center;
   gap: 34px;
 }
- .nav-links a {
+.nav-links a {
   color: #bfc4c6;
-} 
+}
 .nav-links a:hover {
   color: white;
 }
-.nav-lints .active{
-  color: white;
-}
-/* TODO: fix */
-/* .nav-links .active {
-  color: #fff;
-} */
 .nav-links button {
   border: 0;
   color: #fff;
@@ -40,16 +33,17 @@
   place-items: center;
   padding: 0;
 }
-.nav-links button:hover{
-  color: theme("colors.gold");
+.nav-links button:hover {
+  color: var(--color-gold);
+  cursor: pointer;
 }
 .profile-button {
   padding: 8px 16px;
   border-radius: 7px;
   color: #fff;
-  background: theme("colors.poly-green");
+  background: var(--color-poly-green);
   font-size: 16px;
 }
-.profile-button:hover{
+.profile-button:hover {
   background-color: rgba(21, 72, 52, 0.6);
 }

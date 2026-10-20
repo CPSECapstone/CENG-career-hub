@@ -16,12 +16,12 @@ export const metadata: Metadata = {
 
 /* The Root Layout for all pages will be defined here:
    may include a navbar, footer, etc. */
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
-          {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

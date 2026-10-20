@@ -14,14 +14,8 @@ export default function ProtectedLayout({
           <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
             <div className="flex gap-5 items-center font-semibold">
               <Link href={"/"}>Next.js Supabase Starter</Link>
-              
             </div>
-            {!hasEnvVars ? (
-              <br></br>
-            ) : (
-              <Suspense>
-              </Suspense>
-            )}
+            {!hasEnvVars ? <br></br> : <Suspense></Suspense>}
           </div>
         </nav>
         <div className="flex-1 flex flex-col gap-20 max-w-5xl p-5">

@@ -25,13 +25,10 @@
 .nav-links a:hover {
   color: white;
 }
-.nav-lints .active{
-  color: white;
+.nav-links .active {
+  color:#BD8B13
 }
-/* TODO: fix */
-/* .nav-links .active {
-  color: #fff;
-} */
+
 .nav-links button {
   border: 0;
   color: #fff;

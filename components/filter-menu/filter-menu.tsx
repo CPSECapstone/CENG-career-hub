@@ -1,3 +1,1 @@
-export default function FilterMenu() {
-    
-}
+export default function FilterMenu() {}

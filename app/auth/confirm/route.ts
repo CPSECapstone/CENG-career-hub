@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   const next = searchParams.get("next") ?? "/";
 
   redirect(next);
-  
+
   /* Commented out authentication for now while we develop the frontend. (-Morgan)
 
   const token_hash = searchParams.get("token_hash");
@@ -30,5 +30,4 @@ export async function GET(request: NextRequest) {
   }
   // redirect the user to an error page with some instructions
   redirect(`/auth/error?error=No token hash or type`);*/
-  
 }

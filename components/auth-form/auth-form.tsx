@@ -110,11 +110,11 @@ export default function AuthForm({
         {success && <p className="mt-6 text-center text-green">{success}</p>}
         {/* Optional forgot password button */}
         {forgotPasswordText && (
-          <div className="mt-8 flex justify-center">
+          <div className="mt-6 flex justify-start">
             <button
               type="button"
               onClick={onForgotPasswordClick}
-              className="text-sm font-semibold text-dark-gray hover:underline hover:cursor-pointer"
+              className="text-sm font-semibold text-poly-green hover:underline hover:cursor-pointer"
             >
               {forgotPasswordText}
             </button>
@@ -129,7 +129,7 @@ export default function AuthForm({
         {/* Optional button signup/login switch */}
         {bottomText && bottomButtonText && (
           <div className="mt-10 flex items-center justify-center gap-3">
-            <p>{bottomText}</p>
+            <p className="text-black">{bottomText}</p>
             <button
               type="button"
               onClick={onBottomButtonClick}

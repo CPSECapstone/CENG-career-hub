@@ -25,6 +25,10 @@
 .nav-links a:hover {
   color: white;
 }
+.nav-links .active {
+  color:#BD8B13
+}
+
 .nav-links button {
   border: 0;
   color: #fff;

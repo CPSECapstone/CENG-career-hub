@@ -33,7 +33,6 @@ export default function ProtectedPage() {
           </Suspense>
         </pre>
       </div>
-     
     </div>
   );
 }

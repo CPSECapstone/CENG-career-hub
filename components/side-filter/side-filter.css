@@ -71,7 +71,9 @@
   flex: none;
   border: 2px solid var(--color-gray);
   border-radius: 6px;
-  transition: background-color 150ms ease, border-color 150ms ease;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
 }
 .side-filter-options input:checked + .side-filter-checkbox {
   border-color: var(--color-poly-green);

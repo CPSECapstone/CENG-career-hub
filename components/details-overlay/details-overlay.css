@@ -1,4 +1,4 @@
-.event-modal-backdrop {
+.details-overlay-backdrop {
   position: fixed;
   z-index: 30;
   inset: 0;
@@ -7,7 +7,8 @@
   padding: 20px;
   background: rgba(7, 26, 20, 0.58);
 }
-.event-modal {
+
+.details-overlay {
   position: relative;
   width: min(100%, 500px);
   padding: 31px;
@@ -15,7 +16,8 @@
   background: #fff;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
 }
-.modal-close {
+
+.details-overlay-close {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -24,64 +26,86 @@
   padding: 5px;
   border: 0;
   border-radius: 5px;
-  color: theme("colors.dark-gray");
+  color: var(--color-dark-gray);
   background: transparent;
 }
-.modal-close:hover {
+
+.details-overlay-close:hover {
   color: #fff;
-  background: theme("colors.poly-green");
+  background: var(--color-poly-green);
 }
-.modal-label {
-  color: theme("colors.poly-green");
+
+.details-overlay-label {
+  color: var(--color-poly-green);
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
-.event-modal h2 {
+
+.details-overlay h2 {
   max-width: 390px;
   margin: 10px 0 6px;
   font-size: 25px;
   line-height: 1.12;
   letter-spacing: -0.4px;
 }
-.modal-organization {
+
+.details-overlay-subtitle {
   margin: 0;
-  color: theme("colors.dark-gray");
+  color: var(--color-dark-gray);
   font-size: 14px;
 }
-.modal-info {
+
+.details-overlay-info {
   display: grid;
   gap: 13px;
   margin: 25px 0;
 }
-.modal-info > div {
+
+.details-overlay-info > div {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: theme("colors.poly-green");
+  color: var(--color-poly-green);
 }
-.modal-info span {
+
+.details-overlay-info span {
   display: grid;
   gap: 2px;
-  color: theme("colors.dark-gray");
+  color: var(--color-dark-gray);
   font-size: 14px;
 }
-.modal-info b {
-  color: black;
+
+.details-overlay-info b {
+  color: #000;
   font-size: 12px;
 }
-.modal-about {
+
+.details-overlay-description {
   padding-top: 18px;
   border-top: 1px solid #e1e7e4;
 }
-.modal-about h3 {
+
+.details-overlay-description h3 {
   margin: 0 0 7px;
   font-size: 15px;
 }
-.modal-about p {
+
+.details-overlay-description p {
   margin: 0;
-  color: theme("colors.dark-gray");
+  color: var(--color-dark-gray);
   font-size: 14px;
   line-height: 1.55;
+}
+
+@media (max-width: 560px) {
+  .details-overlay {
+    padding: 26px 22px;
+  }
+
+  .details-overlay h2 {
+    max-width: calc(100% - 30px);
+    font-size: 22px;
+  }
 }

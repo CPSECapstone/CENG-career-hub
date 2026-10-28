@@ -23,14 +23,14 @@
   color: #bfc4c6;
 }
 .nav-links .active {
-  color:#BD8B13
+  color: #bd8b13;
 }
 
 .nav-links a:hover {
   color: white;
 }
 .nav-links .active {
-  color:#BD8B13
+  color: #bd8b13;
 }
 
 .nav-links button {

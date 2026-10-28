@@ -81,7 +81,7 @@
 
 /* SHARED COMPONENT STYLES */
 
-@utility cover-photo {
+.cover-photo {
   /* Page Header */
   width: 100%;
   color: #fff;
@@ -89,9 +89,10 @@
   background:
     linear-gradient(#12202bb5, #10201bbc),
     url("/images/cal-poly-slo.png") center 49% / cover;
+  padding: 10px 0px 10px 0px;
 }
 
-@utility page-header {
+.page-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,7 +107,7 @@
 }
 
 /* Basic Button Styles */
-@utility btn-primary {
+.btn-primary {
   background-color: var(--color-poly-green);
   color: white;
   border-radius: 10px;
@@ -126,7 +127,7 @@
   }
 }
 
-@utility btn-tertiary {
+.btn-tertiary {
   &:hover {
     color: var(--color-poly-green);
     background-color: rgba(21, 72, 52, 0.3);
@@ -145,7 +146,7 @@
   transition: filter 150ms ease;
 }
 
-@utility btn-secondary {
+.btn-secondary {
   background-color: var(--color-mustang-gold);
   color: white;
   border-radius: 10px;
@@ -164,7 +165,7 @@
   }
 }
 
-@utility btn-quaternary {
+.btn-quaternary {
   &:hover {
     color: var(--color-mustang-gold);
     background-color: rgba(189, 139, 19, 0.3);
@@ -183,44 +184,210 @@
   transition: filter 150ms ease;
 }
 
-@utility sort-button {
+.sort-button,
+.next-button,
+.previous-button {
   height: 32px;
   padding: 0 10px;
-  border: 1px solid var(--color-dark-sage);
+  border: 1px solid #71808a;
   border-radius: 6px;
-  color: var(--color-dark-sage);
+  color: #687580;
   background: #fff;
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 14px;
+}
+.sort-button {
   margin-top: -8px;
 }
-
-@utility next-button {
-  height: 32px;
-  padding: 0 10px;
-  border: 1px solid var(--color-dark-sage);
-  border-radius: 6px;
-  color: var(--color-dark-sage);
+.sort-menu {
+  position: absolute;
+  top: 31px;
+  right: 0;
+  width: 178px;
+  padding: 6px;
+  border: 1px solid #dce4e1;
+  border-radius: 8px;
   background: #fff;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  box-shadow: 0 10px 22px rgba(10, 47, 37, 0.16);
+}
+.sort-menu button {
+  width: 100%;
+  padding: 8px;
+  border: 0;
+  border-radius: 5px;
+  color: #52606a;
+  background: transparent;
+  font-size: 12px;
+  text-align: left;
+}
+.sort-menu button:hover,
+.sort-menu button.selected {
+  color: #fff;
+  background: #15563f;
 }
 
-@utility previous-button {
-  height: 32px;
-  padding: 0 10px;
-  border: 1px solid var(--color-dark-sage);
-  border-radius: 6px;
-  color: var(--color-dark-sage);
+/* CARDS */
+.cards {
+  display: grid;
+  gap: 29px;
+}
+.event-card {
+  position: relative;
+  min-height: 196px;
+  padding: 31px 31px 29px;
+  border-radius: 15px;
   background: #fff;
+  box-shadow: 0 3px 12px rgba(9, 86, 68, 0.08);
+}
+.time-badge {
+  display: inline-block;
+  padding: 5px 7px;
+  border-radius: 6px;
+  color: #245b4b;
+  background: #e7efec;
+  font-size: 12px;
+  line-height: 14px;
+}
+.event-card h2 {
+  margin: 15px 0 6px;
+  font-size: 21px;
+  letter-spacing: -0.4px;
+  line-height: 1;
+}
+.organization {
+  margin: 0;
+  font-size: 12px;
+}
+.bookmark {
+  position: absolute;
+  top: 31px;
+  right: 31px;
+  color: #6b7982;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.card-footer {
+  position: absolute;
+  bottom: 30px;
+  left: 31px;
+  right: 31px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  justify-content: space-between;
+}
+.event-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #65727d;
+  font-size: 12px;
+}
+.event-meta span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+}
+.event-meta svg {
+  color: #145840;
+}
+.details-button {
+  min-width: 106px;
+  height: 32px;
+  border: 0;
+  border-radius: 7px;
+  background: #11553e;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* PAGE FOOTER - maybe make separate component */
+.pagination {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding-top: 30px;
+}
+.pagination > div {
+  grid-column: 2;
+  display: flex;
+  gap: 18px;
+}
+.pagination .previous-button {
+  grid-column: 1;
+  justify-self: start;
+  cursor: pointer;
+}
+.pagination .next-button {
+  grid-column: 3;
+  justify-self: end;
+  cursor: pointer;
+}
+.pagination button {
+  width: 31px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #71808a;
+  border-radius: 6px;
+  background: #fff;
+  color: #687580;
+  font-size: 16px;
+  cursor: pointer;
+}
+.pagination button.current {
+  border-color: #15563f;
+  color: #fff;
+  background: #15563f;
+}
+.pagination .next-button,
+.pagination .previous-button {
+  width: auto;
+  padding: 0 10px;
+}
+.pagination {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding-top: 30px;
+}
+.pagination > div {
+  grid-column: 2;
+  display: flex;
+  gap: 18px;
+}
+.pagination .previous-button {
+  grid-column: 1;
+  justify-self: start;
+}
+.pagination .next-button {
+  grid-column: 3;
+  justify-self: end;
+}
+.pagination button {
+  width: 31px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #71808a;
+  border-radius: 6px;
+  background: #fff;
+  color: #687580;
+  font-size: 16px;
+}
+.pagination button.current {
+  border-color: #15563f;
+  color: #fff;
+  background: #15563f;
+}
+.pagination .next-button,
+.pagination .previous-button {
+  width: auto;
+  padding: 0 10px;
 }
 
 @layer base {

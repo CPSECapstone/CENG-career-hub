@@ -17,6 +17,7 @@ import {
   type SetStateAction,
 } from "react";
 import { createClient } from "@/lib/supabase/client";
+import DetailsOverlay from "@/components/details-overlay/details-overlay";
 
 type Event = {
   id: number;
@@ -312,8 +313,7 @@ export default function Events() {
           </div>
         </div>
         {loadError && <p className="text-gray">{loadError}</p>}
-        {/* event cards 
-            TODO: add details overlay */}
+        {/* event cards */}
         <div className="cards">
           {paginatedEvents.map((event) => (
             <article className="event-card" key={event.id}>
@@ -351,6 +351,13 @@ export default function Events() {
                 >
                   Event Details
                 </button>
+                {selectedEvent && (
+                  <DetailsOverlay
+                    title={selectedEvent.name}
+                    type={selectedEvent.category}
+                    onClose={() => setSelectedEvent(null)}
+                  />
+                )}
               </div>
             </article>
           ))}

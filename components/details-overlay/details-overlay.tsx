@@ -37,6 +37,8 @@ export default function DetailsOverlay({
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [onClose]);
 
+  if (!title || !type) return null;
+
   return (
     <div
       className="details-overlay-backdrop"

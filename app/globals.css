@@ -233,7 +233,7 @@
   display: grid;
   gap: 29px;
 }
-.event-card {
+.card-data {
   position: relative;
   min-height: 196px;
   padding: 31px 31px 29px;
@@ -279,20 +279,20 @@
   align-items: center;
   justify-content: space-between;
 }
-.event-meta {
+.footer-info {
   display: flex;
   align-items: center;
   gap: 20px;
   color: #65727d;
   font-size: 12px;
 }
-.event-meta span {
+.footer-info span {
   display: flex;
   align-items: center;
   gap: 9px;
   white-space: nowrap;
 }
-.event-meta svg {
+.footer-info svg {
   color: #145840;
 }
 .details-button {

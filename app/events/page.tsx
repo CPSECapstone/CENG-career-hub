@@ -316,7 +316,7 @@ export default function Events() {
             TODO: add details overlay */}
         <div className="cards">
           {paginatedEvents.map((event) => (
-            <article className="event-card" key={event.id}>
+            <article className="card-data" key={event.id}>
               <button
                 className="bookmark"
                 type="button"
@@ -332,7 +332,7 @@ export default function Events() {
               <p className="organization">{event.org}</p>
 
               <div className="card-footer">
-                <div className="event-meta">
+                <div className="footer-info">
                   <span>
                     <Clock3 size={19} />
                     {event.date}

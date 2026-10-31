@@ -213,10 +213,7 @@ export default function Job() {
     [page, sortedJobs],
   );
 
-  const totalPages = Math.max(
-    1,
-    Math.ceil(visibleEvents.length / jobsPerPage),
-  );
+  const totalPages = Math.max(1, Math.ceil(visibleEvents.length / jobsPerPage));
 
   const pageNumbers = Array.from(
     { length: totalPages },
@@ -356,7 +353,7 @@ export default function Job() {
                     title={selectedJob.name}
                     type={selectedJob.category}
                     onClose={() => setSelectedJob(null)}
-                    />
+                  />
                 )}
               </div>
             </article>

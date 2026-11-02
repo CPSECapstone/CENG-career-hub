@@ -1,6 +1,11 @@
+"use client";
 import Navbar from "@/components/navbar/navbar";
+import ChatPopUp from "@/components/chat-popup/chat-popup";
+import { useState } from "react";
+import ChatBox from "@/components/chat-popup/chatbox";
 
 export default function Home() {
+  const [chatOpen, setChatOpen] = useState<Event | null>(null);
   return (
     <main className="min-h-screen flex flex-col items-center">
       <div className="flex-1 w-full flex flex-col gap-20 items-center">
@@ -9,14 +14,13 @@ export default function Home() {
           <div className="page-header">
             <h1>Testing Reusable Components</h1>
           </div>
+          {chatOpen && (<ChatPopUp open={true} onClose={() => setChatOpen(null)}/>)}
+          <ChatBox onClose={() => setChatOpen(null)} />
           <button className="btn-primary mt-2 mb-2">Button 1</button>
-          <br></br>
           <button className="btn-secondary mt-2 mb-2">Button 2</button>
-          <br></br>
           <button className="btn-tertiary mt-2 mb-2">Button 3</button>
-          <br></br>
           <button className="btn-quaternary mt-2 mb-2">Button 4</button>
-          <br></br>
+          
         </div>
         <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8">
           <p>

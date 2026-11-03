@@ -7,9 +7,6 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const next = searchParams.get("next") ?? "/";
 
-  /* Commented out authentication for now while we develop the frontend. (-Morgan)*/
-  /* Un-commented out authentication to work on login/signup (-Amelia)*/
-
   const token_hash = searchParams.get("token_hash");
   const type = searchParams.get("type") as EmailOtpType | null;
   if (token_hash && type) {

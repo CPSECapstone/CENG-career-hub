@@ -1,6 +1,5 @@
 "use client";
 import { createClient } from "@/lib/supabase/client";
-import { useState } from "react";
 import AuthForm from "@/components/auth-form/auth-form";
 import Navbar from "@/components/navbar/navbar";
 import { useRouter } from "next/navigation";
@@ -12,7 +11,7 @@ export default function Login() {
   const router = useRouter();
 
   //student login/signup
-  async function studentSignInWithEmail(formData: Record<string, string>): Promise<void> {
+  async function studentLoginWithEmail(formData: Record<string, string>): Promise<void> {
     //check basic error email login 
     if (!formData.email || formData.email.trim() === "" || !formData.email.includes("@")) {
       throw new Error("Email is required");
@@ -25,7 +24,7 @@ export default function Login() {
     const {error} = await supabase.auth.signInWithOtp({
       email: formData.email,
       options: {
-        shouldCreateUser: true,
+        shouldCreateUser: false,
         emailRedirectTo: `${window.location.origin}/auth/confirm`,
       }
     })
@@ -56,7 +55,7 @@ export default function Login() {
               customPlaceHolder: "Enter your password",
             },
           ]}
-          onSubmit={studentSignInWithEmail}
+          onSubmit={studentLoginWithEmail}
           forgotPasswordText="Forgot password?"
           onForgotPasswordClick={() => router.push("/forgot-password")}
           bottomText="Don't have an account?"

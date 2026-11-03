@@ -10,7 +10,6 @@ import { Mail, Lock } from "lucide-react";
 
 export default function Login() {
   const router = useRouter();
-  const [error, setError] = useState<string | null>(null);
 
   //student login/signup
   async function studentSignInWithEmail(formData: Record<string, string>): Promise<void> {
@@ -19,11 +18,11 @@ export default function Login() {
       throw new Error("Email is required");
     }
     //Check if email isn't recruiter email
-    if(!formData.email.includes("@calpoly.edu")) {
+    if(!formData.email.endsWith("@calpoly.edu")) {
       throw new Error("Please use your university email address");
     }
     const supabase = createClient();
-    const {data, error} = await supabase.auth.signInWithOtp({
+    const {error} = await supabase.auth.signInWithOtp({
       email: formData.email,
       options: {
         shouldCreateUser: true,
@@ -31,11 +30,8 @@ export default function Login() {
       }
     })
     if (error) {
-      setError(error.message);
-      
+      throw new Error(error.message);
     }
-    
-
   }
 
 

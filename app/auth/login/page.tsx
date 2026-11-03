@@ -1,5 +1,6 @@
 "use client";
 import { createClient } from "@/lib/supabase/client";
+import { studentMagicLink } from "@/app/auth/login-sign-up-logic/magic-link";
 import AuthForm from "@/components/auth-form/auth-form";
 import Navbar from "@/components/navbar/navbar";
 import { useRouter } from "next/navigation";
@@ -7,30 +8,13 @@ import { Mail, Lock } from "lucide-react";
 
 
 
+
 export default function Login() {
   const router = useRouter();
 
-  //student login/signup
-  async function studentLoginWithEmail(formData: Record<string, string>): Promise<void> {
-    //check basic error email login 
-    if (!formData.email || formData.email.trim() === "" || !formData.email.includes("@")) {
-      throw new Error("Email is required");
-    }
-    //Check if email isn't recruiter email
-    if(!formData.email.endsWith("@calpoly.edu")) {
-      throw new Error("Please use your university email address");
-    }
+  async function handleLogin(formData: Record<string, string>): Promise<void> {
     const supabase = createClient();
-    const {error} = await supabase.auth.signInWithOtp({
-      email: formData.email,
-      options: {
-        shouldCreateUser: false,
-        emailRedirectTo: `${window.location.origin}/auth/confirm`,
-      }
-    })
-    if (error) {
-      throw new Error(error.message);
-    }
+    await studentMagicLink(supabase.auth, formData, false);
   }
 
 
@@ -55,12 +39,12 @@ export default function Login() {
               customPlaceHolder: "Enter your password",
             },
           ]}
-          onSubmit={studentLoginWithEmail}
+          onSubmit={handleLogin}
           forgotPasswordText="Forgot password?"
           onForgotPasswordClick={() => router.push("/forgot-password")}
           bottomText="Don't have an account?"
           bottomButtonText="Sign Up"
-          onBottomButtonClick={() => router.push("/signup")}
+          onBottomButtonClick={() => router.push("/sign-up")}
         />
       </div>
     </div>

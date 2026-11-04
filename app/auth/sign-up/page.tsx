@@ -9,9 +9,9 @@ import { Mail, Lock } from "lucide-react";
 
 export default function Signup() {
   
-  async function handleSignUp(formData: Record<string, string>): Promise<void> {
+  async function handleSignUp(email: string): Promise<void> {
     const supabase = createClient();
-    await studentMagicLink(supabase.auth, formData, true);
+    await studentMagicLink(supabase.auth, email, true);
   }
 
 
@@ -28,18 +28,6 @@ export default function Signup() {
               Icon: Mail,
               type: "email",
               customPlaceHolder: "Enter your email",
-            },
-            {
-              label: "Create Password",
-              Icon: Lock,
-              type: "password",
-              customPlaceHolder: "Create a password",
-            },
-            {
-              label: "Confirm Password",
-              Icon: Lock,
-              type: "password",
-              customPlaceHolder: "Confirm password",
             },
           ]}
           onSubmit={handleSignUp}

@@ -12,9 +12,9 @@ import { Mail, Lock } from "lucide-react";
 export default function Login() {
   const router = useRouter();
 
-  async function handleLogin(formData: Record<string, string>): Promise<void> {
+  async function handleLogin(email: string): Promise<void> {
     const supabase = createClient();
-    await studentMagicLink(supabase.auth, formData, false);
+    await studentMagicLink(supabase.auth, email, false);
   }
 
 
@@ -32,19 +32,12 @@ export default function Login() {
               type: "email",
               customPlaceHolder: "Enter your email",
             },
-            {
-              label: "Password",
-              Icon: Lock,
-              type: "password",
-              customPlaceHolder: "Enter your password",
-            },
+            
           ]}
           onSubmit={handleLogin}
-          forgotPasswordText="Forgot password?"
-          onForgotPasswordClick={() => router.push("/forgot-password")}
           bottomText="Don't have an account?"
           bottomButtonText="Sign Up"
-          onBottomButtonClick={() => router.push("/sign-up")}
+          onBottomButtonClick={() => router.push("/auth/sign-up")}
         />
       </div>
     </div>

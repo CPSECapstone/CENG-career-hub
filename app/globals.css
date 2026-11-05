@@ -58,6 +58,7 @@
     letter-spacing: -0.8px;
     font-weight: 700;
   }
+}
 
 /* Basic Button Styles */
 .btn-primary {
@@ -341,6 +342,7 @@
 .pagination .previous-button {
   width: auto;
   padding: 0 10px;
+}
 }
 
 @layer base {

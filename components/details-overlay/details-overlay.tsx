@@ -14,7 +14,7 @@ type DetailsOverlayProps = {
   title: string;
   subtitle?: string;
   type: string;
-  details: Detail[];
+  details?: Detail[];
   description?: string;
   onClose: () => void;
 };
@@ -37,8 +37,14 @@ export default function DetailsOverlay({
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [onClose]);
 
+  if (!title || !type) return null;
+
   return (
-    <div className="details-overlay-backdrop" role="presentation" onMouseDown={onClose}>
+    <div
+      className="details-overlay-backdrop"
+      role="presentation"
+      onMouseDown={onClose}
+    >
       <section
         className="details-overlay"
         role="dialog"
@@ -58,7 +64,7 @@ export default function DetailsOverlay({
         <h2 id="details-overlay-title">{title}</h2>
         {subtitle && <p className="details-overlay-subtitle">{subtitle}</p>}
         <div className="details-overlay-info">
-          {details.map(({ label, value, icon: Icon }) => (
+          {details?.map(({ label, value, icon: Icon }) => (
             <div key={label}>
               {Icon && <Icon size={19} />}
               <span>

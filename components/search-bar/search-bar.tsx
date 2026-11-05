@@ -1,5 +1,4 @@
 "use client";
-
 import { ChevronDown, Search } from "lucide-react";
 import { FormEvent, useState } from "react";
 import "./search-bar.css";
@@ -73,9 +72,7 @@ export default function SearchBar({
           className="dropdown-trigger"
           type="button"
           onClick={() =>
-            setOpenDropdown(
-              openDropdown === "location" ? null : "location",
-            )
+            setOpenDropdown(openDropdown === "location" ? null : "location")
           }
           aria-expanded={openDropdown === "location"}
         >
@@ -106,9 +103,7 @@ export default function SearchBar({
           className="dropdown-trigger"
           type="button"
           onClick={() =>
-            setOpenDropdown(
-              openDropdown === "category" ? null : "category",
-            )
+            setOpenDropdown(openDropdown === "category" ? null : "category")
           }
           aria-expanded={openDropdown === "category"}
         >

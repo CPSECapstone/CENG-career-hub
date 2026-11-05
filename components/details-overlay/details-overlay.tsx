@@ -17,7 +17,19 @@ type DetailsOverlayProps = {
   details?: Detail[];
   description?: string;
   onClose: () => void;
+  applicationUrl?: string | null;
 };
+
+function removeLinks(text: string) {
+  return text
+    // Remove URLs enclosed in angle brackets.
+    .replace(/<https?:\/\/[^>]+>/gi, "")
+    // Remove other URLs.
+    .replace(/https?:\/\/[^\s<>"']+/gi, "")
+    // Clean up extra spaces left behind.
+    .replace(/[ \t]{2,}/g, " ")
+    .trim();
+}
 
 /** A reusable details dialog for job, event, and other listing cards. */
 export default function DetailsOverlay({
@@ -27,6 +39,7 @@ export default function DetailsOverlay({
   details,
   description,
   onClose,
+  applicationUrl,
 }: DetailsOverlayProps) {
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
@@ -77,8 +90,18 @@ export default function DetailsOverlay({
         {description && (
           <div className="details-overlay-description">
             <h3>About</h3>
-            <p>{description}</p>
+            <p>{removeLinks(description)}</p>
           </div>
+        )}
+        {applicationUrl && (
+          <a
+            className="details-overlay-apply"
+            href={applicationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View opportunity
+          </a>
         )}
       </section>
     </div>

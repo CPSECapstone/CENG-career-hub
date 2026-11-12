@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+    commands:
+      - npm ci
+
+  pre_build:
+    commands:
+      - npm run lint
+      # Uncomment once a test script exists:
+      # - npm run test -- --run
+
+  build:
+    commands:
+      - npm run build

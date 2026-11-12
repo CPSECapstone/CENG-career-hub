@@ -20,7 +20,7 @@ export default function Navbar() {
           <Bell size={17} />
         </button>
         {/* TODO: add logic for logged in vs. logged out user */}
-        <Link href="/login">Login</Link>
+        <Link href="../auth/login">Login</Link>
         <Link className="profile-button" href="/student-profile">
           Profile
         </Link>

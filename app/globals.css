@@ -260,16 +260,7 @@
   margin: 0;
   font-size: 12px;
 }
-.bookmark {
-  position: absolute;
-  top: 31px;
-  right: 31px;
-  color: #6b7982;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-}
+
 .card-footer {
   position: absolute;
   bottom: 30px;

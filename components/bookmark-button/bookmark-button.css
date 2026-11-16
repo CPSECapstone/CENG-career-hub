@@ -1,0 +1,17 @@
+.bookmark {
+  position: absolute;
+  top: 31px;
+  right: 31px;
+  color: var(--color-gray);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  &.saved{
+    color: var(--color-mustang-gold)
+  }
+} 
+/* solid fill for bookmark */
+.bookmark.saved svg{
+  fill: currentColor;
+}

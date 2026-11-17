@@ -21,14 +21,16 @@ type DetailsOverlayProps = {
 };
 
 function removeLinks(text: string) {
-  return text
-    // Remove URLs enclosed in angle brackets.
-    .replace(/<https?:\/\/[^>]+>/gi, "")
-    // Remove other URLs.
-    .replace(/https?:\/\/[^\s<>"']+/gi, "")
-    // Clean up extra spaces left behind.
-    .replace(/[ \t]{2,}/g, " ")
-    .trim();
+  return (
+    text
+      // Remove URLs enclosed in angle brackets.
+      .replace(/<https?:\/\/[^>]+>/gi, "")
+      // Remove other URLs.
+      .replace(/https?:\/\/[^\s<>"']+/gi, "")
+      // Clean up extra spaces left behind.
+      .replace(/[ \t]{2,}/g, " ")
+      .trim()
+  );
 }
 
 /** A reusable details dialog for job, event, and other listing cards. */

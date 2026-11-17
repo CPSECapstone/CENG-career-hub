@@ -1,0 +1,93 @@
+.profile-display {
+  display: flex;
+  width: min(100%, 588px);
+  min-height: 708px;
+  flex-direction: column;
+  padding: 32px 39px 61px;
+  border-radius: 39px;
+  background: var(--color-sage);
+}
+
+.profile-display-avatar {
+  width: 306px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  align-self: center;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  background-position: center;
+  background-size: cover;
+}
+
+.profile-display-details {
+  margin-top: auto;
+}
+
+.profile-display-details h2,
+.profile-display-details p {
+  margin: 0;
+  color: #000;
+}
+
+.profile-display-details h2 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.profile-display-details p {
+  margin-top: 32px;
+  font-size: clamp(1.35rem, 3.2vw, 1.9rem);
+  line-height: 1.2;
+}
+
+.profile-display-edit-button {
+  width: 100%;
+  min-height: 76px;
+  margin-top: 40px;
+  border: 0;
+  border-radius: 15px;
+  background: var(--color-poly-green);
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: clamp(1.4rem, 3.6vw, 1.9rem);
+  font-weight: 600;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.profile-display-edit-button:hover {
+  background: #fff;
+  color: var(--color-poly-green);
+}
+
+.profile-display-edit-button:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .profile-display {
+    min-height: 0;
+    padding: 28px 24px 32px;
+    border-radius: 28px;
+  }
+
+  .profile-display-avatar {
+    width: min(66vw, 250px);
+  }
+
+  .profile-display-details {
+    margin-top: 42px;
+  }
+
+  .profile-display-details p {
+    margin-top: 16px;
+  }
+
+  .profile-display-edit-button {
+    min-height: 60px;
+    margin-top: 28px;
+  }
+}

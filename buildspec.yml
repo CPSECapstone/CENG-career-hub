@@ -10,6 +10,7 @@ phases:
   pre_build:
     commands:
       - npm run lint
+      - npm run prettier
       # Uncomment once a test script exists:
       # - npm run test -- --run
 

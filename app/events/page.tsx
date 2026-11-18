@@ -1,6 +1,7 @@
 "use client";
 import Navbar from "@/components/navbar/navbar";
 import SearchBar from "@/components/search-bar/search-bar";
+import BookmarkButton from "@/components/bookmark-button/bookmark-button";
 import {
   Bookmark,
   ChevronDown,
@@ -317,20 +318,10 @@ export default function Events() {
         <div className="cards">
           {paginatedEvents.map((event) => (
             <article className="card-data" key={event.id}>
-              <button
-                className="bookmark"
-                type="button"
-                aria-label={`Save ${event.name}`}
-              >
-                <Bookmark size={19} />
-              </button>
-
+              <BookmarkButton postId={event.id} initialState={false}/>
               <span className="time-badge">{event.posted}</span>
-
               <h2>{event.name}</h2>
-
               <p className="organization">{event.org}</p>
-
               <div className="card-footer">
                 <div className="footer-info">
                   <span>

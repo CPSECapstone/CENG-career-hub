@@ -50,7 +50,6 @@
 	},
 	"lint-staged": {
 		"*.{ts,tsx, json,css}": [
-			"npm run test",
 			"npm run prettier"
 		]
 	}

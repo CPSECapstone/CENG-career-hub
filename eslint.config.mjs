@@ -3,19 +3,17 @@ import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 import { globalIgnores } from "eslint/config";
 
-
-
 const eslintConfig = [
-  globalIgnores([
-    ".next/",
-    "out/",
-    "coverage/",
-    "dist/",
-    "build/",
-    "supabase/.temp/",
-  ]),
+	globalIgnores([
+		".next/",
+		"out/",
+		"coverage/",
+		"dist/",
+		"build/",
+		"supabase/.temp/",
+	]),
 
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+	...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 
 export default eslintConfig;

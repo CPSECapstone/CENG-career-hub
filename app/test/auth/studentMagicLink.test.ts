@@ -47,6 +47,15 @@ describe("studentMagicLink", () => {
 
     expect(mockAuth.signInWithOtp).not.toHaveBeenCalled();
   });
+it("rejects login for a student without an account", async () => {
+  mockAuth = {
+      signInWithOtp: vi.fn().mockResolvedValue({ error: {message : "Signups not allowed for otp" }}),
+    };
+
+  await expect(
+    studentMagicLink(mockAuth, "notuser@calpoly.edu", false),
+  ).rejects.toThrow("No account found for this email. Please sign up first.");
+});
 
 });
 

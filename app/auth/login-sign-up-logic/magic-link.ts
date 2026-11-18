@@ -37,6 +37,9 @@ export async function studentMagicLink(
       }
     })
     if (error) {
+        if (!createUser && error.message === "Signups not allowed for otp") {
+        throw new Error("No account found for this email. Please sign up first.");
+      }
       throw new Error(error.message);
     }
   }

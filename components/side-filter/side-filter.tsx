@@ -1,153 +1,209 @@
 "use client";
 
-import { ChevronDown, MapPin, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { useState } from "react";
 import "./side-filter.css";
 
-type FilterOption = {
-  label: string;
-  count: number;
+export type FilterOption = {
+	label: string;
+	count: number;
 };
 
-const industries: FilterOption[] = [
-  { label: "Mechanical Engineering", count: 10 },
-  { label: "Electrical Engineering", count: 10 },
-  { label: "Computer Science", count: 10 },
-  { label: "Aerospace Engineering", count: 10 },
-  { label: "Computer Engineering", count: 10 },
-  { label: "Civil Engineering", count: 10 },
-  { label: "Industrial Engineering", count: 10 },
-];
+export type SidebarFilters = {
+	query: string;
+	location: string;
+	majors: string[];
+	categories: string[];
+	datePosted: string;
+};
 
-const datePosted: FilterOption[] = [
-  { label: "All", count: 10 },
-  { label: "Last Hour", count: 10 },
-  { label: "Last 24 Hours", count: 10 },
-  { label: "Last 7 Days", count: 10 },
-  { label: "Last 30 Days", count: 10 },
-];
+type SideFilterProps = {
+	page: "events" | "jobs";
+	locations: string[];
+	majors: FilterOption[];
+	categories: FilterOption[];
+	datePostedOptions: FilterOption[];
+	filters: SidebarFilters;
+	onChange: (filters: SidebarFilters) => void;
+};
 
-const campusOptions: FilterOption[] = [
-  { label: "On Campus", count: 10 },
-  { label: "Off Campus", count: 10 },
-];
+type FilterListProps = {
+	options: FilterOption[];
+	selected: string[];
+	onToggle: (label: string) => void;
+};
 
-function FilterList({ options }: { options: FilterOption[] }) {
-  const [selected, setSelected] = useState<string[]>([]);
+function FilterList({ options, selected, onToggle }: FilterListProps) {
+	if (options.length === 0) {
+		return <p>No options available yet.</p>;
+	}
 
-  const toggleOption = (label: string) => {
-    setSelected((current) =>
-      current.includes(label)
-        ? current.filter((option) => option !== label)
-        : [...current, label],
-    );
-  };
+	return (
+		<div className="side-filter-options">
+			{options.map(({ label, count }) => (
+				<label key={label}>
+					<input
+						type="checkbox"
+						checked={selected.includes(label)}
+						onChange={() => onToggle(label)}
+					/>
 
-  return (
-    <div className="side-filter-options">
-      {options.map(({ label, count }) => (
-        <label key={label}>
-          <input
-            type="checkbox"
-            checked={selected.includes(label)}
-            onChange={() => toggleOption(label)}
-          />
-          <span className="side-filter-checkbox" />
-          <span>{label}</span>
-          <b>{count}</b>
-        </label>
-      ))}
-    </div>
-  );
+					<span className="side-filter-checkbox" />
+					<span>{label}</span>
+					<b>{count}</b>
+				</label>
+			))}
+		</div>
+	);
 }
 
-function CampusFilter() {
-  const [selectedCampus, setSelectedCampus] = useState("");
+export default function SideFilter({
+	page,
+	locations,
+	majors,
+	categories,
+	datePostedOptions,
+	filters,
+	onChange,
+}: SideFilterProps) {
+	const [showAllMajors, setShowAllMajors] = useState(false);
 
-  return (
-    <div className="side-filter-options">
-      {campusOptions.map(({ label, count }) => (
-        <label key={label}>
-          <input
-            type="radio"
-            name="campus"
-            checked={selectedCampus === label}
-            onChange={() => setSelectedCampus(label)}
-          />
-          <span className="side-filter-checkbox" />
-          <span>{label}</span>
-          <b>{count}</b>
-        </label>
-      ))}
-    </div>
-  );
-}
+	const isEvents = page === "events";
 
-/** Reusable filter sidebar for job and event listings. */
-export default function SideFilter() {
-  const [query, setQuery] = useState("");
-  const [city, setCity] = useState("Choose city");
-  const [showAllIndustries, setShowAllIndustries] = useState(false);
+	const updateFilters = (changes: Partial<SidebarFilters>) => {
+		onChange({
+			...filters,
+			...changes,
+		});
+	};
 
-  return (
-    <aside className="side-filter">
-      <section>
-        <h2>Search by Club</h2>
-        <label className="side-filter-input">
-          <Search aria-hidden="true" size={34} strokeWidth={2.25} />
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search company name"
-            aria-label="Search company name"
-          />
-        </label>
-      </section>
+	const toggleOption = (field: "majors" | "categories", label: string) => {
+		const current = filters[field];
 
-      <section>
-        <h2>Location</h2>
-        <button
-          className="side-filter-location"
-          type="button"
-          onClick={() =>
-            setCity(city === "Choose city" ? "San Luis Obispo" : "Choose city")
-          }
-          aria-label="Choose city"
-        >
-          <MapPin aria-hidden="true" size={36} strokeWidth={2.25} />
-          <span>{city}</span>
-          <ChevronDown
-            className="ml-auto"
-            aria-hidden="true"
-            size={31}
-            strokeWidth={2.5}
-          />
-        </button>
-      </section>
+		const updated = current.includes(label)
+			? current.filter((item) => item !== label)
+			: [...current, label];
 
-      <section>
-        <h2>Campus</h2>
-        <CampusFilter />
-      </section>
+		updateFilters({ [field]: updated });
+	};
 
-      <section>
-        <h2>Industry</h2>
-        <FilterList
-          options={showAllIndustries ? industries : industries.slice(0, 5)}
-        />
-        <button
-          className="side-filter-show-more"
-          type="button"
-          onClick={() => setShowAllIndustries((current) => !current)}
-        >
-          {showAllIndustries ? "Show Less" : "Show More"}
-        </button>
-      </section>
+	const clearFilters = () => {
+		onChange({
+			query: "",
+			location: "",
+			majors: [],
+			categories: [],
+			datePosted: "All",
+		});
+	};
 
-      <section>
-        <h2>Date Posted</h2>
-        <FilterList options={datePosted} />
-      </section>
-    </aside>
-  );
+	const hasFilters =
+		filters.query ||
+		filters.location ||
+		filters.majors.length > 0 ||
+		filters.categories.length > 0 ||
+		filters.datePosted !== "All";
+
+	return (
+		<aside className="side-filter">
+			<section>
+				<h2>{isEvents ? "Search by Event" : "Search by Job Title"}</h2>
+
+				<label className="side-filter-input">
+					<Search aria-hidden="true" size={16} />
+
+					<input
+						value={filters.query}
+						onChange={(event) =>
+							updateFilters({ query: event.target.value })
+						}
+						placeholder={isEvents ? "Event title" : "Job title"}
+						aria-label={isEvents ? "Event title" : "Job title"}
+					/>
+				</label>
+			</section>
+
+			<section>
+				<h2>Location</h2>
+
+				<select
+					className="side-filter-location"
+					value={filters.location}
+					onChange={(event) =>
+						updateFilters({ location: event.target.value })
+					}
+					aria-label="Choose location"
+				>
+					<option value="">All locations</option>
+
+					{locations.map((location) => (
+						<option key={location} value={location}>
+							{location}
+						</option>
+					))}
+				</select>
+			</section>
+
+			<section>
+				<h2>Major</h2>
+
+				<FilterList
+					options={showAllMajors ? majors : majors.slice(0, 5)}
+					selected={filters.majors}
+					onToggle={(label) => toggleOption("majors", label)}
+				/>
+
+				{majors.length > 5 && (
+					<button
+						className="side-filter-show-more"
+						type="button"
+						onClick={() => setShowAllMajors((current) => !current)}
+					>
+						{showAllMajors ? "Show Less" : "Show More"}
+					</button>
+				)}
+			</section>
+
+			<section>
+				<h2>{isEvents ? "Opportunity Type" : "Job Type"}</h2>
+
+				<FilterList
+					options={categories}
+					selected={filters.categories}
+					onToggle={(label) => toggleOption("categories", label)}
+				/>
+			</section>
+
+			<section>
+				<h2>Date Posted</h2>
+
+				<div className="side-filter-options">
+					{datePostedOptions.map(({ label, count }) => (
+						<label key={label}>
+							<input
+								type="radio"
+								name={`date-posted-${page}`}
+								checked={filters.datePosted === label}
+								onChange={() => updateFilters({ datePosted: label })}
+							/>
+
+							<span className="side-filter-checkbox" />
+							<span>{label}</span>
+							<b>{count}</b>
+						</label>
+					))}
+				</div>
+			</section>
+
+			{hasFilters && (
+				<button
+					className="side-filter-show-more"
+					type="button"
+					onClick={clearFilters}
+				>
+					Clear sidebar filters
+				</button>
+			)}
+		</aside>
+	);
 }

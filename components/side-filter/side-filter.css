@@ -1,161 +1,161 @@
 .side-filter {
-  width: 100%;
-  padding: 28px 16px 32px;
-  border-radius: 15px;
-  color: #151f1a;
-  background: #b8cec3;
+	width: 100%;
+	padding: 28px 16px 32px;
+	border-radius: 15px;
+	color: #151f1a;
+	background: #b8cec3;
 }
 
 .side-filter section + section {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 
 .side-filter h2 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.2;
+	margin: 0;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.2;
 }
 
 .side-filter-input,
 .side-filter-location {
-  width: 100%;
-  height: 34px;
-  margin-top: 10px;
-  padding: 0 10px;
-  border: 0;
-  border-radius: 9px;
-  color: #687580;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
+	width: 100%;
+	height: 34px;
+	margin-top: 10px;
+	padding: 0 10px;
+	border: 0;
+	border-radius: 9px;
+	color: #687580;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 12px;
 }
 
 .side-filter-input svg,
 .side-filter-location svg {
-  width: 16px;
-  height: 16px;
-  flex: none;
+	width: 16px;
+	height: 16px;
+	flex: none;
 }
 
 .side-filter-input input {
-  width: 100%;
-  min-width: 0;
-  border: 0;
-  outline: 0;
-  color: #334047;
-  background: transparent;
-  font: inherit;
+	width: 100%;
+	min-width: 0;
+	border: 0;
+	outline: 0;
+	color: #334047;
+	background: transparent;
+	font: inherit;
 }
 
 .side-filter-input input::placeholder {
-  color: #687580;
+	color: #687580;
 }
 
 .side-filter-location {
-  text-align: left;
-  cursor: pointer;
+	text-align: left;
+	cursor: pointer;
 }
 
 .side-filter-location svg:last-child {
-  margin-left: auto;
+	margin-left: auto;
 }
 
 .side-filter-options {
-  margin-top: 10px;
-  display: grid;
-  gap: 9px;
+	margin-top: 10px;
+	display: grid;
+	gap: 9px;
 }
 
 .side-filter-options label {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  cursor: pointer;
-  font-size: 12px;
-  line-height: 1.2;
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 1.2;
 }
 
 .side-filter-options input {
-  position: absolute;
-  opacity: 0;
+	position: absolute;
+	opacity: 0;
 }
 
 .side-filter-checkbox {
-  width: 14px;
-  height: 14px;
-  flex: none;
-  border: 1px solid #687580;
-  border-radius: 3px;
+	width: 14px;
+	height: 14px;
+	flex: none;
+	border: 1px solid #687580;
+	border-radius: 3px;
 }
 
 .side-filter-options input:checked + .side-filter-checkbox {
-  border-color: #154734;
-  background: #154734;
-  box-shadow: inset 0 0 0 3px #b8cec3;
+	border-color: #154734;
+	background: #154734;
+	box-shadow: inset 0 0 0 3px #b8cec3;
 }
 
 .side-filter-options input:focus-visible + .side-filter-checkbox {
-  outline: 2px solid #154734;
-  outline-offset: 2px;
+	outline: 2px solid #154734;
+	outline-offset: 2px;
 }
 
 .side-filter-options b {
-  min-width: 27px;
-  margin-left: auto;
-  padding: 2px 6px;
-  border-radius: 999px;
-  color: #687580;
-  background: #fff;
-  font-size: 11px;
-  font-weight: 400;
-  text-align: center;
+	min-width: 27px;
+	margin-left: auto;
+	padding: 2px 6px;
+	border-radius: 999px;
+	color: #687580;
+	background: #fff;
+	font-size: 11px;
+	font-weight: 400;
+	text-align: center;
 }
 
 .side-filter-show-more {
-  width: 100%;
-  height: 32px;
-  margin-top: 12px;
-  border: 0;
-  border-radius: 6px;
-  color: #fff;
-  background: #154734;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
+	width: 100%;
+	height: 32px;
+	margin-top: 12px;
+	border: 0;
+	border-radius: 6px;
+	color: #fff;
+	background: #154734;
+	font-size: 12px;
+	font-weight: 600;
+	cursor: pointer;
 }
 
 .side-filter-show-more:hover {
-  background: #0e3225;
+	background: #0e3225;
 }
 
 .side-filter-salary {
-  width: 100%;
-  margin: 14px 0 8px;
-  accent-color: #154734;
-  cursor: pointer;
+	width: 100%;
+	margin: 14px 0 8px;
+	accent-color: #154734;
+	cursor: pointer;
 }
 
 .side-filter-salary-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  font-size: 11px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	font-size: 11px;
 }
 
 .side-filter-salary-row button {
-  padding: 4px 10px;
-  border: 0;
-  border-radius: 4px;
-  color: #fff;
-  background: #154734;
-  font-size: 11px;
-  cursor: pointer;
+	padding: 4px 10px;
+	border: 0;
+	border-radius: 4px;
+	color: #fff;
+	background: #154734;
+	font-size: 11px;
+	cursor: pointer;
 }
 
 .side-filter-salary-row button:hover {
-  background: #0e3225;
+	background: #0e3225;
 }

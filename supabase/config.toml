@@ -190,6 +190,7 @@ password_requirements = ""
 [auth.email.template.magic_link]
 subject = "Your sign-in link"
 content_path = "./supabase/templates/magic-link.html"
+
 # Configure passkey sign-ins.
 # [auth.passkey]
 # enabled = false

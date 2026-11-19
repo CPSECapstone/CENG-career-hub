@@ -30,7 +30,7 @@ export default function BookmarkButton({
     try {
       const supabase = createClient();
 
-      // get current user
+      // // get current user
       const {
         data: { user },
         error: authError,
@@ -40,18 +40,21 @@ export default function BookmarkButton({
       }
 
       if (nextState) {
+        console.log("I have been clicked");
         // add new bookmark
         const { error } = await supabase
           .from("saved_opportunities")
           .insert({ user_id: user.id, opportunity_id: postId });
         if (error) throw error;
       } else {
+        console.log("I have been unclicked");
         // delete saved post
         const { error } = await supabase
           .from("saved_opportunities")
           .delete()
           .eq("user_id", user.id)
-          .eq("opportunity_id", postId);
+          .eq("opportunity_id", postId)
+          .select(); // this should return the deleted vaule, used for testing purposes
         if (error) throw error;
       }
     } catch (error) {

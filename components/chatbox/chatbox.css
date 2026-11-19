@@ -1,0 +1,140 @@
+.home-chat {
+  position: fixed;
+  right: 32px;
+  bottom: 28px;
+  z-index: 40;
+  color: #171717;
+  font-family: "Figtree", Arial, sans-serif;
+}
+
+.home-chat-popup,
+.home-chat-box {
+  width: 300px;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+.home-chat-popup {
+  min-height: 58px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-chat-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.home-chat-icon-button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: #154734;
+  cursor: pointer;
+}
+
+.home-chat-icon-button:hover {
+  background: #0e3225;
+}
+
+.home-chat-icon-button:focus-visible {
+  outline: 3px solid #bd8b13;
+  outline-offset: 2px;
+}
+
+.home-chat-box {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-chat-header {
+  min-height: 58px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dedede;
+}
+
+.home-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 14px;
+}
+
+.home-chat-message {
+  max-width: 85%;
+  padding: 12px;
+  border-radius: 11px;
+  color: #171717;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.home-chat-message-bot {
+  align-self: flex-start;
+  background: #f0f0f4;
+}
+
+.home-chat-message-user {
+  align-self: flex-end;
+  background: #9ed45f;
+}
+
+.home-chat-input {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 14px 20px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #7d8791;
+  background: #f0f0f4;
+}
+
+.home-chat-input input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  color: #171717;
+  background: transparent;
+  font-size: 13px;
+}
+
+.home-chat-input input::placeholder {
+  color: #7d8791;
+}
+
+@media (max-width: 400px) {
+  .home-chat {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .home-chat-popup,
+  .home-chat-box {
+    width: 100%;
+  }
+
+  .home-chat-box {
+    max-height: calc(100dvh - 24px);
+  }
+}

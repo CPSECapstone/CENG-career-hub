@@ -13,6 +13,7 @@ type SearchBarProps = {
   locations?: string[];
   categories?: string[];
   onSearch?: (filters: SearchFilters) => void;
+  placeholder?: string;
 };
 
 /** Reusable search bar for job and opportunity listings. */
@@ -20,6 +21,7 @@ export default function SearchBar({
   locations = [],
   categories = [],
   onSearch,
+  placeholder = "Job Title or Company",
 }: SearchBarProps) {
   const [query, setQuery] = useState("");
   const [location, setLocation] = useState("");
@@ -63,8 +65,8 @@ export default function SearchBar({
       <input
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="Job Title or Company"
-        aria-label="Job title or company"
+        placeholder={placeholder}
+        aria-label={placeholder}
       />
 
       <div className="select-control">

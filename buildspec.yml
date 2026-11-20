@@ -13,10 +13,11 @@ phases:
          - npm run prettier
          - npm run test
          - npm run cy:verify
-         - npm run cy:info
 
    build:
       commands:
          - npm run build
-         - npm run start:ci & 
-         - npx cypress run --record
+         - npm run cy:component
+         - npm run start:ci > /tmp/next.log 2>&1 &
+         - npx wait-on --timeour 60000 http://localhost:3000
+         - npm run cy:e2e

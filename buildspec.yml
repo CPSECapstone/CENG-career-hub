@@ -19,5 +19,5 @@ phases:
          - npm run build
          - npm run cy:component
          - npm run start:ci > /tmp/next.log 2>&1 &
-         - npx wait-on --timeour 60000 http://localhost:3000
+         - npx wait-on --timeout 60000 http://localhost:3000
          - npm run cy:e2e

@@ -8,10 +8,9 @@
 	border-radius: 13px;
 	background: #fff;
 	display: grid;
-	grid-template-columns: minmax(190px, 1.3fr) minmax(125px, 1fr) minmax(
-			125px,
-			1fr
-		) 106px;
+	grid-template-columns:
+		minmax(190px, 1.3fr) minmax(125px, 1fr) minmax(125px, 1fr)
+		106px;
 	align-items: stretch;
 	color: var(--color-dark-gray);
 }

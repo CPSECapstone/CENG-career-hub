@@ -4,9 +4,14 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
+		"start:ci": "next start -p 3000",
 		"prettier": "prettier --write .",
 		"lint": "eslint .",
 		"test": "vitest run",
+		"cy:verify": "cypress verify",
+		"cy:info": "cypress info",
+		"cy:component": "cypress run --component",
+		"cy:e2e": "cypress run --e2e",
 		"prepare": "husky",
 		"pre-commit": "lint-staged"
 	},
@@ -47,7 +52,8 @@
 		"tailwindcss-animate": "^1.0.7",
 		"typescript": "^5",
 		"vite-tsconfig-paths": "^6.1.1",
-		"vitest": "^4.1.12"
+		"vitest": "^4.1.12",
+		"wait-on": "^9.5.1"
 	},
 	"lint-staged": {
 		"*.{ts,tsx, json,css}": [

@@ -1,9 +1,6 @@
-// replace with actual URL after deployment
-const url: string = "http://localhost:3000";
-
 describe("Navigation", () => {
 	beforeEach(() => {
-		cy.visit(`${url}`);
+		cy.visit("/");
 	});
 
 	it("should navigate to the events page via navbar", () => {

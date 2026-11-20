@@ -1,45 +1,45 @@
 .home-hero {
-  position: relative;
-  min-height: 550px;
-  padding: 0;
+	position: relative;
+	min-height: 550px;
+	padding: 0;
 }
 
 .home-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 48px 20px 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 48px 20px 150px;
 }
 
 .home-content h1 {
-  margin: 0 0 34px;
-  color: #fff;
-  font-size: clamp(36px, 5vw, 52px);
-  font-weight: 700;
-  line-height: 1.1;
-  text-align: center;
+	margin: 0 0 34px;
+	color: #fff;
+	font-size: clamp(36px, 5vw, 52px);
+	font-weight: 700;
+	line-height: 1.1;
+	text-align: center;
 }
 
 .home-chat {
-  position: absolute;
-  right: 0;
-  bottom: 55px;
+	position: absolute;
+	right: 0;
+	bottom: 55px;
 }
 
 @media (max-width: 680px) {
-  .home-hero {
-    min-height: 520px;
-  }
+	.home-hero {
+		min-height: 520px;
+	}
 
-  .home-content {
-    padding-top: 55px;
-  }
+	.home-content {
+		padding-top: 55px;
+	}
 
-  .home-content .select-control {
-    display: block;
-  }
+	.home-content .select-control {
+		display: block;
+	}
 
-  .home-chat {
-    bottom: 24px;
-  }
+	.home-chat {
+		bottom: 24px;
+	}
 }
